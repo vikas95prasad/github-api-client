@@ -1,0 +1,77 @@
+{
+  "engines": {
+    "node": ">=16.x",
+    "npm": "6.x",
+    "yarn": "1.22.x"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "sync_with_wheel": "curl -s -L \"https://raw.githubusercontent.com/bigbinary/wheel/master/.scripts/sync_with_wheel.sh\" | bash"
+  },
+  "lint-staged": {
+    "app/**/*.{js,jsx,json}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "{package.json,.eslintrc.js,.prettierrc.js}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    ".eslint-rules/**/*": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "./**/*.rb": [
+      "bundle exec rubocop -a"
+    ],
+    "{Gemfile,Rakefile,config.ru}": [
+      "bundle exec rubocop -a"
+    ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.7",
+    "autoprefixer": "^10.2.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.2.15",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.1.2",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "@bigbinary/neetoui": "^1.0.27",
+    "@rails/webpacker": "5.4.0",
+    "axios": "^0.21.4",
+    "babel-plugin-js-logger": "^1.0.17",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.6",
+    "core-js": "3.7.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jam3": "^0.2.3",
+    "formik": "^2.2.5",
+    "js-logger": "^1.6.1",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-router-nav-prompt": "^0.4.0",
+    "react-toastify": "^6.1.0",
+    "react_ujs": "^2.6.1",
+    "yup": "^0.31.0"
+  }
+}
