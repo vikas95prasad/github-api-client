@@ -8,5 +8,7 @@ namespace :api, defaults: { format: :json } do
     end
 
     resources :users, only: [:show, :create, :update, :destroy], constraints: { id: /.*/ }
+
+    resources :search
   end
 end
