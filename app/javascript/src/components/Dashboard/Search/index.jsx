@@ -16,9 +16,12 @@ const Search = () => {
       setRepositorySearchTerm(searchTerm);
       setLoading(true);
       setRepositories([]);
-      const response = await searchApi.fetchAll({ q: searchTerm });
-      setRepositories(response.data.repositories);
-      setTotalRepositories(response.data.total_count);
+      debugger;
+      if (searchTerm !== "") {
+        const response = await searchApi.fetchAll({ q: searchTerm });
+        setRepositories(response.data.repositories);
+        setTotalRepositories(response.data.total_count);
+      }
     } finally {
       setLoading(false);
     }
