@@ -11,4 +11,4 @@ development:
 test:
   <<: *default
   user: postgres
-  database: wheel_test<%= ENV['CIRCLE_NODE_INDEX'] %>
+  database: github-api-client_test<%= ENV['CIRCLE_NODE_INDEX'] %>
