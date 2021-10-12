@@ -2,9 +2,9 @@
 
 module Github
   module Default
-    API_ENDPOINT = "https://api.github.com".freeze
-    USER_AGENT = "Github-API-Client".freeze
-    MEDIA_TYPE = "application/vnd.github.v3+json".freeze
+    API_ENDPOINT = "https://api.github.com"
+    USER_AGENT = "Github-API-Client"
+    MEDIA_TYPE = "application/vnd.github.v3+json"
 
     class << self
       def connection_options
