@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const fetch = () => axios.get("api/v1/search");
+const fetchAll = payload =>
+  axios.get("api/v1/search/repositories", { params: payload });
 
-const notesApi = {
-  fetch
+const searchApi = {
+  fetchAll
 };
 
-export default notesApi;
+export default searchApi;

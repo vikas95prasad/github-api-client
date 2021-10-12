@@ -6,7 +6,7 @@ default: &default
 
 development:
   <<: *default
-  database: wheel_development
+  database: github-api-client_production
 
 test:
   <<: *default

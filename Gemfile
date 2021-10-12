@@ -92,6 +92,10 @@ group :development do
 
   # Preview email in browser
   gem "letter_opener"
+
+  gem "byebug"
+  gem "faraday"
+  gem "sawyer"
 end
 
 group :test do

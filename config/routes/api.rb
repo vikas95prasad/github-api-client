@@ -9,6 +9,6 @@ namespace :api, defaults: { format: :json } do
 
     resources :users, only: [:show, :create, :update, :destroy], constraints: { id: /.*/ }
 
-    resources :search
+    get "/search/repositories", to: "search#repositories"
   end
 end
