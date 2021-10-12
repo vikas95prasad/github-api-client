@@ -2,7 +2,7 @@
 
 module Github
   module Configurable
-    attr_accessor :api_endpoint, :connection_options, :default_media_type, :user_agent, :web_endpoint
+    attr_accessor :api_endpoint, :connection_options, :default_media_type, :user_agent
 
     class << self
       def keys

@@ -17,5 +17,6 @@
   "files.trimFinalNewlines": true,
   "editor.formatOnSave": true,
   "yaml.format.enable": true,
-  "ruby.rubocop.useBundler": true
+  "ruby.rubocop.useBundler": true,
+  "deepscan.enable": true
 }

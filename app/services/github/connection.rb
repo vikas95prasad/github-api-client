@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+# Network layer for API clients.
 module Github
-  # Network layer for API clients.
   module Connection
     CONVENIENCE_HEADERS = Set.new([:accept, :content_type])
 
@@ -29,15 +29,7 @@ module Github
 
     private
 
-      def request(method, path, data, options = {})
-        if data.is_a?(Hash)
-          options[:query] = data.delete(:query) || {}
-          options[:headers] = data.delete(:headers) || {}
-          if accept = data.delete(:accept)
-            options[:headers][:accept] = accept
-          end
-        end
-
+      def request(method, path, options = {}, data = {})
         response = agent.call(method, Addressable::URI.parse(path.to_s).normalize.to_s, data, options)
         response.data
       rescue Exception => e
@@ -45,9 +37,7 @@ module Github
       end
 
       def sawyer_options
-        opts = {
-          links_parser: Sawyer::LinkParsers::Simple.new
-        }
+        opts = { links_parser: Sawyer::LinkParsers::Simple.new }
         conn_opts = @connection_options
         opts[:faraday] = Faraday.new(conn_opts)
 
@@ -55,19 +45,7 @@ module Github
       end
 
       def parse_query_and_convenience_headers(options)
-        options = options.dup
-        headers = options.delete(:headers) { Hash.new }
-        CONVENIENCE_HEADERS.each do |h|
-          if header = options.delete(h)
-            headers[h] = header
-          end
-        end
-        query = options.delete(:query)
-        opts = { query: options }
-        opts[:query].merge!(query) if query && query.is_a?(Hash)
-        opts[:headers] = headers unless headers.empty?
-
-        opts
+        { query: options }
       end
   end
 end
