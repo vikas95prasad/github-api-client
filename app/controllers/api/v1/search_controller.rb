@@ -10,7 +10,7 @@ class Api::V1::SearchController < Api::V1::BaseController
   end
 
   def repositories
-    render_required_parameter_missing if repositories_params[:q].blank?
+    render_required_parameter_missing if search_term.blank?
 
     @repo_data = github_client.search_repositories(search_options)
   end
@@ -21,13 +21,13 @@ class Api::V1::SearchController < Api::V1::BaseController
       Github::Client.new
     end
 
-    def repositories_params
-      params.permit(:q)
+    def search_term
+      params.require(:q)
     end
 
     def search_options
       {
-        q: repositories_params[:q],
+        q: search_term,
         sort: DEFAULT_SORT,
         order: DEFAULT_SORT,
         per_page: DEFAULT_PER_PAGE,

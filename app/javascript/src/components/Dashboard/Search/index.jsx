@@ -16,7 +16,6 @@ const Search = () => {
       setRepositorySearchTerm(searchTerm);
       setLoading(true);
       setRepositories([]);
-      debugger;
       if (searchTerm !== "") {
         const response = await searchApi.fetchAll({ q: searchTerm });
         setRepositories(response.data.repositories);
