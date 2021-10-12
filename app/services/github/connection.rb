@@ -3,8 +3,6 @@
 # Network layer for API clients.
 module Github
   module Connection
-    CONVENIENCE_HEADERS = Set.new([:accept, :content_type])
-
     def get(url, options = {})
       request :get, url, parse_query_and_convenience_headers(options)
     end
