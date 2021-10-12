@@ -1,7 +1,5 @@
 ## Local Development Setup
 
-Clone this repo by running `git clone https://github.com/bigbinary/wheel.git`.
-
 Install the [Node.js](https://nodejs.org) version `v16.5` which we have specified inside the `.node-version` file.
 
 ```bash
